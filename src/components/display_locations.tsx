@@ -1,21 +1,29 @@
 import { useQuery } from '@apollo/client'
 import { GET_LOCATIONS } from '@/graph/query'
 
-export default function DisplayLocations() {
-  const { loading, error, data } = useQuery(GET_LOCATIONS)
+const Location = ({ data }: any) => {
+  const {name, description, overallRating} = data
 
-  if (loading) return <p>Loading...</p>
-  if (error) return <p>Error :(</p>
-
-  // @ts-ignore
-  return data.locations.map(({ id, name, description, overallRating }) => (
-    <div key={id}>
+  return (
+    <li>
       <h3>{name}</h3>
-      <br />
-      <b>About this location:</b>
-      <p>{description}</p>
+      <p>description: {description}</p>
       <p>rating: {overallRating}</p>
-      <br />
-    </div>
-  ))
+    </li>
+  )
+}
+
+export default function DisplayLocations() {
+  const { loading, data, refetch } = useQuery(GET_LOCATIONS)
+
+  if (loading) return (<p>Loading...</p>)
+
+  return (
+    <>
+      <button onClick={() => refetch()}>refetch</button>
+      <ul>
+        {data.locations.map((location: any) => <Location key={location.id} data={location} />)}
+      </ul>
+    </>
+  )
 }

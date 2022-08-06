@@ -5,7 +5,7 @@ const Home: NextPage = () => {
   const client = new ApolloClient({
     uri: 'https://flyby-gateway.herokuapp.com/',
     cache: new InMemoryCache(),
-  });
+  })
 
   client
     .query({
@@ -20,7 +20,7 @@ const Home: NextPage = () => {
         }
       `,
     })
-    .then((result) => console.log(result));
+    .then((result) => console.log(result))
 
   return <div></div>
 }

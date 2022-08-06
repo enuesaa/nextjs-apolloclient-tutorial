@@ -1,7 +1,7 @@
 import { useQuery } from '@apollo/client'
 import { GET_LOCATIONS } from '@/graph/query'
 
-const Location = ({ data }: any) => {
+export const Location = ({ data }: any) => {
   const {name, description, overallRating} = data
 
   return (
@@ -13,7 +13,7 @@ const Location = ({ data }: any) => {
   )
 }
 
-export default function DisplayLocations() {
+export default function Locations() {
   const { loading, data, refetch } = useQuery(GET_LOCATIONS)
 
   if (loading) return (<p>Loading...</p>)

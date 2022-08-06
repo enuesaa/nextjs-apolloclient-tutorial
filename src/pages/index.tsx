@@ -1,5 +1,10 @@
-import DisplayLocations from '@/components/display_locations'
+import LinkButton from '@/components/linkbutton'
 
 export default function TopPage() {
-  return <DisplayLocations />
+  return (
+    <>
+      <LinkButton pathname={'/locations'} name={'locations'} />
+      <LinkButton pathname={'/lazylocations'} name={'lazylocations'} />
+    </>
+  )
 }

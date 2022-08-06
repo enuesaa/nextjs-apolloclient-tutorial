@@ -2,10 +2,10 @@ import { useQuery } from '@apollo/client'
 import { GET_LOCATIONS } from '@/graph/query'
 
 export default function DisplayLocations() {
-  const { loading, error, data } = useQuery(GET_LOCATIONS);
+  const { loading, error, data } = useQuery(GET_LOCATIONS)
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(</p>;
+  if (loading) return <p>Loading...</p>
+  if (error) return <p>Error :(</p>
 
   // @ts-ignore
   return data.locations.map(({ id, name, description, photo }) => (
@@ -17,5 +17,5 @@ export default function DisplayLocations() {
       <p>{description}</p>
       <br />
     </div>
-  ));
+  ))
 }

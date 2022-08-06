@@ -1,20 +1,7 @@
-import type { NextPage } from 'next'
-import { useQuery, gql } from '@apollo/client';
+import DisplayLocations from '@/components/display_locations'
 
-const Home: NextPage = () => {
-  const {loading, error, data} = useQuery(gql`
-    query GetLocations {
-      locations {
-        id
-        name
-        description
-        photo
-      }
-    }
-  `)
-  console.log(data)
-
-  return <div></div>
+export default function TopPage () {
+  return (
+    <DisplayLocations />
+  )
 }
-
-export default Home

@@ -8,13 +8,13 @@ export default function DisplayLocations() {
   if (error) return <p>Error :(</p>
 
   // @ts-ignore
-  return data.locations.map(({ id, name, description, photo }) => (
+  return data.locations.map(({ id, name, description, overallRating }) => (
     <div key={id}>
       <h3>{name}</h3>
-      <img width="400" height="250" alt="location-reference" src={`${photo}`} />
       <br />
       <b>About this location:</b>
       <p>{description}</p>
+      <p>rating: {overallRating}</p>
       <br />
     </div>
   ))

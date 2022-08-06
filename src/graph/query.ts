@@ -6,7 +6,7 @@ export const GET_LOCATIONS = gql`
       id
       name
       description
-      photo
+      overallRating
     }
   }
 `
